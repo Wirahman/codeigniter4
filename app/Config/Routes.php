@@ -33,8 +33,12 @@ $routes->get('/', 'Home::index');
 $routes->post('/test', 'UsersControllers::test');
 $routes->get('/createUsers', 'UsersControllers::create');
 
-$routes->post('/createUsers', 'UsersControllers::create');
 $routes->post('/login', 'UsersControllers::login');
+$routes->get('/getAllUsers', 'UsersControllers::getAll');
+$routes->post('/createUsers', 'UsersControllers::create');
+$routes->post('/updateUsers', 'UsersControllers::update');
+$routes->post('/getByParamsUsers', 'UsersControllers::getByParams');
+$routes->get('/deleteUsers', 'UsersControllers::delete');
 
 
 $routes->get('/getAllPegawai', 'PegawaiControllers::getAll');

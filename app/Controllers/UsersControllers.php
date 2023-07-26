@@ -156,10 +156,22 @@ class UsersControllers extends ResourceController
         $model->update($id, $data);
     }
 
+    // get by params
+    public function getByParams($id = null)
+    {
+        $model = new UsersModels();
+        $id = $this->request->getVar('id');
+        $data = $model->where('id', $id)->first();
+        if($data){
+            return $this->respond($data);
+        }
+    }
+
     // delete
     public function delete($id = null)
     {
         $model = new UsersModels();
+        $id = $this->request->getVar('id');
         $data = $model->where('id', $id)->delete($id);
         if ($data) {
             $model->delete($id);
@@ -175,4 +187,13 @@ class UsersControllers extends ResourceController
             return $this->failNotFound('Data tidak ditemukan.');
         }
     }
+    
+    // all user
+    public function getAll()
+    {
+        $model = new UsersModels();
+        $data['user'] = $model->orderBy('id', 'DESC')->findAll();
+        return $this->respond($data);
+    }
+
 }
