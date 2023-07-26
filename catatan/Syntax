@@ -1,0 +1,5 @@
+Cara Menjalankan Aplikasi
+1. php spark serve
+2. Buka localhost:8080
+
+Memeriksa routes = php spark routes
